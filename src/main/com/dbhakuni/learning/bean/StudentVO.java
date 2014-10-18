@@ -15,6 +15,17 @@ public class StudentVO {
 	public StudentVO() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public StudentVO(String name, String std, int age) {
+		super();
+		this.name = name;
+		this.std = std;
+		this.age = age;
+	}
+
+
 
 	private String name;
 	private String std;

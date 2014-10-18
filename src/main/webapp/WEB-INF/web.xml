@@ -4,12 +4,24 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
-  
+  <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:com/dbhakuni/resource/AppContext.xml</param-value>
+	</context-param>
+ 
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
   <servlet>
 		<servlet-name>jersey-serlvet</servlet-name>
+<!-- 		<servlet-class> -->
+<!--                      com.sun.jersey.spi.container.servlet.ServletContainer -->
+<!--                 </servlet-class> -->
 		<servlet-class>
-                     com.sun.jersey.spi.container.servlet.ServletContainer
-                </servlet-class>
+			com.sun.jersey.spi.spring.container.servlet.SpringServlet
+		</servlet-class>
 		<init-param>
 		     <param-name>com.sun.jersey.config.property.packages</param-name>
 		     <param-value>com.dbhakuni.learning.jax.rs.resource</param-value>

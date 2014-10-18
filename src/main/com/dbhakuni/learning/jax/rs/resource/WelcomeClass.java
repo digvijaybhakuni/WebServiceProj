@@ -4,6 +4,8 @@
 package com.dbhakuni.learning.jax.rs.resource;
 
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -13,21 +15,30 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.dbhakuni.learning.bean.StudentVO;
+import com.dbhakuni.learning.dao.BasicDataDAO;
 
 /**
  * @author dbhakuni
  *
  */
-@Path("/")
+@Path("/") @Component
 public class WelcomeClass {
 
 	/**
 	 * 
 	 */
 	public WelcomeClass() {
-		// TODO Auto-generated constructor stub
+		System.out.println("WelcomeClass :: New Object :: .... ");
 	}
+	
+	@Autowired
+	BasicDataDAO basicDataDAO = null;
+	
+	
 
 	@GET @Path("/")
 	public Response doWelcome(){
@@ -51,13 +62,9 @@ public class WelcomeClass {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response allStudents(){
 		
-		System.out.println("Welcome.. Allstudents");
-		
-		StudentVO studentVO =new StudentVO();
-		studentVO.setAge(5);
-		studentVO.setName("no name");
-		studentVO.setStd("Class I");
-		return Response.ok().entity(studentVO).build();
+		System.out.println("Welcome.. Allstudents... ");
+		List<StudentVO> studentVOs = basicDataDAO.getAllStudents();
+		return Response.ok().entity(studentVOs).build();
 		
 	}
 	
@@ -67,7 +74,7 @@ public class WelcomeClass {
 	public Response students(StudentVO studentVO){
 		
 		System.out.println("Welcome.. student -> "+ studentVO);
-		
+		studentVO.setName(studentVO.getName()+" bhakuni ");
 		return Response.ok().entity(studentVO).build();
 		
 	}
