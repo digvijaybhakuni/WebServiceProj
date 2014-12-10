@@ -7,9 +7,22 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
  
-	<context:component-scan base-package="com.dbhakuni.learning.jax.rs.resource" />
+	
  
-        <bean id="basicDataDAO" 
-                  class="com.dbhakuni.learning.dao.impl.BasicDataDAOImpl" />
- 
+        
+ 		
+ 		<bean id="mongoClient" class="com.mongodb.MongoClient" >
+ 			<constructor-arg name="host" value="127.0.0.1"/>
+ 		</bean>
+ 		<bean id="mongoTemplateX" class="org.springframework.data.mongodb.core.MongoTemplate">
+ 			<constructor-arg name="mongo" ref="mongoClient" />
+ 			<constructor-arg name="databaseName" value="mydb" />
+ 		</bean>
+ 		
+ 		<bean id="basicDataDAO" 
+                  class="com.dbhakuni.learning.dao.impl.BasicDataDAOImpl" >
+                  <constructor-arg name="mongoTemplate" ref="mongoTemplateX"/>
+        </bean>	
+        
+        <context:component-scan base-package="com.dbhakuni.learning.jax.rs.resource" />	
 </beans>

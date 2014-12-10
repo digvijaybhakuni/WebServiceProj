@@ -8,5 +8,6 @@ public interface BasicDataDAO {
 
 	
 	List<StudentVO> getAllStudents();
+	StudentVO add(StudentVO studentVO);
 	
 }

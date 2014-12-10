@@ -6,6 +6,8 @@ package com.dbhakuni.learning.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.mongodb.core.MongoTemplate;
+
 import com.dbhakuni.learning.bean.StudentVO;
 import com.dbhakuni.learning.dao.BasicDataDAO;
 
@@ -14,6 +16,21 @@ import com.dbhakuni.learning.dao.BasicDataDAO;
  *
  */
 public class BasicDataDAOImpl implements BasicDataDAO {
+
+	MongoTemplate mongoTemplate = null;
+	
+	public BasicDataDAOImpl(MongoTemplate mongoTemplate){
+		this.mongoTemplate = mongoTemplate;
+	}
+	
+	
+	public MongoTemplate getMongoTemplate() {
+		return mongoTemplate;
+	}
+
+	public void setMongoTemplate(MongoTemplate mongoTemplate) {
+		this.mongoTemplate = mongoTemplate;
+	}
 
 	/**
 	 * 
@@ -35,6 +52,12 @@ public class BasicDataDAOImpl implements BasicDataDAO {
 		studentVOs.add(new StudentVO("Pankaj", "MCA", 25));
 		
 		return studentVOs;
+	}
+	
+	
+	public StudentVO add(StudentVO studentVO){
+		mongoTemplate.save(studentVO);
+		return studentVO;
 	}
 
 }

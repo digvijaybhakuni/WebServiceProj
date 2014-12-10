@@ -9,10 +9,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.springframework.stereotype.Component;
+
 import com.dbhakuni.learning.bean.CalcBean;
 
 
 @Path("/calc")
+@Component
 public class CalculatorClass {
 
 	public CalculatorClass() {

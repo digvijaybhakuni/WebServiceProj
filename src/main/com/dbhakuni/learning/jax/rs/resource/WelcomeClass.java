@@ -81,6 +81,17 @@ public class WelcomeClass {
 		return Response.ok().entity(studentVO).build();
 
 	}
+	
+	@POST
+	@Path("/student/add")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response add(StudentVO studentVO) {
+
+		studentVO = basicDataDAO.add(studentVO);
+		return Response.ok().entity(studentVO).build();
+
+	}
 
 	@GET
 	@Path("/fileText")
