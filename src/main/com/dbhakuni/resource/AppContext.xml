@@ -9,8 +9,11 @@
  
 	
  
-        
+        <context:component-scan base-package="com.dbhakuni.learning.config" />
+ 		<context:annotation-config/>
  		
+ 		 	
+ 		 
  		<bean id="mongoClient" class="com.mongodb.MongoClient" >
  			<constructor-arg name="host" value="127.0.0.1"/>
  		</bean>
@@ -22,7 +25,14 @@
  		<bean id="basicDataDAO" 
                   class="com.dbhakuni.learning.dao.impl.BasicDataDAOImpl" >
                   <constructor-arg name="mongoTemplate" ref="mongoTemplateX"/>
-        </bean>	
+        </bean>
         
+        <bean id="myMoviesDataDAO" 
+                  class="com.dbhakuni.learning.dao.impl.MyMoviesDataDAOImpl" >
+                  <property name="mongoOperations" ref="mongoOperations"/>
+        </bean>
+        	
         <context:component-scan base-package="com.dbhakuni.learning.jax.rs.resource" />	
+       
+        
 </beans>
