@@ -15,5 +15,13 @@ public interface MyMoviesDataDAO {
 
 	
 	List<MoviesVO> getAllMoviesList();
+
+	MoviesVO getMoviesById(MoviesVO moviesVO);
+
+	MoviesVO addMovies(MoviesVO moviesVO);
+
+	MoviesVO updateMovies(MoviesVO moviesVO);
+
+	MoviesVO deleteMoviesById(MoviesVO moviesVO);
 	
 }

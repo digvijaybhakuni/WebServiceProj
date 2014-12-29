@@ -38,6 +38,10 @@ public class MoviesVO {
 		this.genre = genre;
 	}
 	
+	public MoviesVO(String id){
+		this.id = id;
+	}
+	
 	/**
 	 * 
 	 */
