@@ -23,12 +23,12 @@ import com.mongodb.MongoException;
 @Configuration
 public class MongoDbConfig {
 
-	private static final String HOST = "linus.mongohq.com";
-	private static final String USER = "newuser";
-	private static final String PASSWORD = "test";
-	private static final String DATABASE = "devdb";
+	private static final String HOST = "yourhost";
+	private static final String USER = "youruser";
+	private static final String PASSWORD = "yourpassword";
+	private static final String DATABASE = "yourdatabase";
 	private static final int PORT = 10086;
-	//mongodb://<user>:<password>@linus.mongohq.com:10086/devdb
+	//
 	
 	/**
 	 * 
