@@ -13,6 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +25,7 @@ import com.dbhakuni.learning.dao.MyMoviesDataDAO;
 @Component
 public class MoviesClass {
 
+	private static final Logger LOGGER = Logger.getLogger(MoviesClass.class);
 	public MoviesClass() {
 		// TODO Auto-generated constructor stub 
 	}
@@ -64,11 +66,13 @@ public class MoviesClass {
 	@GET @Path("/search/{field}/{value}") @Produces(MediaType.APPLICATION_JSON)
 	public Response searchOnOneField(@PathParam("field")final String field,@PathParam("value")final String value){
 		System.out.printf("[ Field : %s , Value : %s ]", field, value);
+		
 		return Response.ok(myMoviesDataDAO.getAllMoviesList()).build();
 	}
 	
 	@GET @Path("/test") @Produces(MediaType.APPLICATION_JSON)
 	public Response test(){
+		LOGGER.info("Into Test Methods");
 		return Response.ok(new ResponseVO<MoviesVO>("404", "Test is test", new MoviesVO("446464644677"))).build();
 	}
 	

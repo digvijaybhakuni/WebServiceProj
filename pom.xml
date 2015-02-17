@@ -33,7 +33,18 @@
 			<artifactId>jersey-json</artifactId>
 			<version>1.8</version>
 		</dependency>
-		<!-- Spring  3.0.5 -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>1.8</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+
+		<!-- Spring 3.0.5 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -51,22 +62,22 @@
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		<!-- Spring  3.0.5 -->
-		
+		<!-- Spring 3.0.5 -->
+
 		<!-- Spring Data for MongoDB -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
 			<version>${springdata.version}</version>
 		</dependency>
- 
+
 		<!-- Java MongoDB Driver -->
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
 			<version>${mongojavadriver.version}</version>
 		</dependency>
-		
+
 		<!-- Jersey + Spring -->
 		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
@@ -96,7 +107,7 @@
 			</exclusions>
 		</dependency>
 		<!-- Jersey + Spring -->
-		
-		
+
+
 	</dependencies>
 </project>
